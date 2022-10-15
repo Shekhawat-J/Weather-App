@@ -1,0 +1,116 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --spacing-medium: 8px;
+  --spacing-regular: 16px;
+
+  --font-small: 0.5rem;
+  --font-regular: 1rem;
+  --font-large: 2rem;
+  --font-xl: 4rem;
+
+  --font-semibold:600;
+}
+
+h1, h2{
+    margin: 0;
+}
+
+p{
+    margin: var(--font-small);
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 400px;
+  margin: auto;
+}
+
+/* Mobile first Page */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "current current"
+    "hourly hourly"
+    "fiveday fiveday"
+    "fillslike humidity";
+  gap: var(--spacing-regular);
+}
+
+.container,
+.container > article {
+  border: 1px solid;
+  border-radius: var(--spacing-medium);
+  padding: var(--spacing-regular);
+}
+
+/* Style Related to current wheather data */
+#current-forcast {
+  grid-area: current;
+  text-align: center;
+}
+
+#current-forcast .temp{
+    font-size: var(--font-xl);
+}
+#current-forcast .description{
+    font-size: var(--font-regular);
+    font-weight: var(--font-semibold);
+    text-transform: capitalize;
+}
+#current-forcast .min-max-temp{
+    font-size: var(--font-regular);
+    font-weight: var(--font-semibold);
+}
+
+
+/* style related to hourly forcast section  */
+#hourly-forcast {
+  grid-area: hourly;
+  text-align: center;
+}
+
+#hourly-forcast h1{
+    margin-bottom: 1rem;
+}
+#hourly-forcast .hourly-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    /* overflow: hidden; */
+}
+#hourly-forcast .hourly-container article{
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+#hourly-forcast .hourly-container .time{
+    margin: 0;
+}
+#hourly-forcast .hourly-container .icon{
+    width: 75px;
+    height: 75px;
+    margin: 0;
+}
+#hourly-forcast .hourly-container .hourly-temp{
+    margin: 0;
+    font-weight: var(--font-semibold);
+}
+
+#five-day-forcast {
+  grid-area: fiveday;
+}
+
+#fills-like {
+  grid-area: fillslike;
+  text-align: center;
+}
+
+#humidity {
+  grid-area: humidity;
+  text-align: center;
+}
